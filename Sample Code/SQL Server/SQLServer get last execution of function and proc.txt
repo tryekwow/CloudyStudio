@@ -1,0 +1,4 @@
+SELECT TOP 10 b.text,* FROM SYS.dm_exec_query_stats a 
+CROSS APPLY sys.dm_exec_sql_text(sql_handle) b
+where b.text LIKE '%p_Log_DB_Execution%' 
+order by last_execution_time desc
